@@ -1,0 +1,143 @@
+id: jcode.lang.stylesheet
+name: Style Sheet Language Pack
+version: 1.0.0
+type: language
+
+# One extension, many style-sheet languages. Each entry is a self-contained
+# language pack (coloring + completions + helpers + formatter) by file extension.
+# Note: at-rules like @media / @mixin / @include color as annotations automatically.
+languages:
+  # ---------------------------------------------------------------- CSS
+  - id: css
+    extensions: [".css", ".pcss", ".postcss"]
+    comment: { blockStart: "/*", blockEnd: "*/" }
+    strings: ["\"", "'"]
+    keywords: [
+      color, background, "background-color", "background-image", "background-size", "background-position",
+      border, "border-radius", "border-color", "border-width", outline, margin, padding, width, height,
+      "min-width", "max-width", "min-height", "max-height", display, position, top, right, bottom, left,
+      float, clear, overflow, "z-index", font, "font-size", "font-family", "font-weight", "font-style",
+      "line-height", "letter-spacing", "text-align", "text-decoration", "text-transform", "white-space",
+      flex, "flex-direction", "flex-wrap", "justify-content", "align-items", "align-self", gap, grid,
+      "grid-template-columns", "grid-template-rows", "grid-gap", transition, transform, animation,
+      opacity, "box-shadow", "box-sizing", cursor, content, visibility, "pointer-events"
+    ]
+    types: &cssvalues [
+      px, em, rem, vh, vw, vmin, vmax, fr, deg, none, auto, inherit, initial, unset, block, inline,
+      "inline-block", flex, grid, absolute, relative, fixed, sticky, static, center, left, right,
+      top, bottom, bold, italic, normal, solid, dashed, dotted, hidden, visible, pointer, transparent,
+      uppercase, lowercase, capitalize, wrap, nowrap, row, column, cover, contain
+    ]
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: rule, detail: selector block, insert: "$1 {\n  $0\n}" }
+      - { label: flexcenter, detail: flex center, insert: "display: flex;\n  align-items: center;\n  justify-content: center;$0" }
+      - { label: media, detail: media query, insert: "@media (max-width: $1px) {\n  $0\n}" }
+
+  # ---------------------------------------------------------------- SCSS
+  - id: scss
+    extensions: [".scss"]
+    comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+    strings: ["\"", "'"]
+    keywords: [
+      color, background, "background-color", border, "border-radius", margin, padding, width, height,
+      "min-width", "max-width", display, position, top, right, bottom, left, overflow, "z-index", font,
+      "font-size", "font-family", "font-weight", "line-height", "text-align", flex, "flex-direction",
+      "justify-content", "align-items", gap, grid, transition, transform, opacity, "box-shadow", cursor,
+      "box-sizing", from, to, through, in, if, else
+    ]
+    types: *cssvalues
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: mixin, detail: "@mixin", insert: "@mixin $1 {\n  $0\n}" }
+      - { label: include, detail: "@include", insert: "@include $1;$0" }
+      - { label: var, detail: variable, insert: "$$1: $0;" }
+      - { label: ifelse, detail: "@if/@else", insert: "@if $1 {\n  $2\n} @else {\n  $0\n}" }
+
+  # ---------------------------------------------------------------- SASS (indented)
+  - id: sass
+    extensions: [".sass"]
+    comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+    strings: ["\"", "'"]
+    keywords: [
+      color, background, "background-color", border, "border-radius", margin, padding, width, height,
+      display, position, top, right, bottom, left, overflow, font, "font-size", "font-weight",
+      "line-height", "text-align", flex, "justify-content", "align-items", gap, transition, transform,
+      opacity, cursor, from, to, through, in, if, else
+    ]
+    types: *cssvalues
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: mixin, detail: "=mixin", insert: "=$1\n  $0" }
+      - { label: include, detail: "+include", insert: "+$1$0" }
+      - { label: var, detail: variable, insert: "$$1: $0" }
+
+  # ---------------------------------------------------------------- LESS
+  - id: less
+    extensions: [".less"]
+    comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+    strings: ["\"", "'"]
+    keywords: [
+      color, background, "background-color", border, "border-radius", margin, padding, width, height,
+      "min-width", "max-width", display, position, top, right, bottom, left, overflow, "z-index", font,
+      "font-size", "font-family", "font-weight", "line-height", "text-align", flex, "flex-direction",
+      "justify-content", "align-items", gap, grid, transition, transform, opacity, "box-shadow", cursor,
+      "box-sizing", when, not, and, "true", "false"
+    ]
+    types: *cssvalues
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: mixin, detail: mixin, insert: ".$1() {\n  $0\n}" }
+      - { label: var, detail: variable, insert: "@$1: $0;" }
+      - { label: import, detail: "@import", insert: "@import \"$1\";$0" }
+
+  # ---------------------------------------------------------------- Stylus
+  - id: stylus
+    extensions: [".styl", ".stylus"]
+    comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+    strings: ["\"", "'"]
+    keywords: [
+      color, background, "background-color", border, "border-radius", margin, padding, width, height,
+      display, position, top, right, bottom, left, overflow, font, "font-size", "font-weight",
+      "line-height", "text-align", flex, "justify-content", "align-items", gap, transition, transform,
+      opacity, cursor, if, else, for, in, return, unless
+    ]
+    types: *cssvalues
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: mixin, detail: mixin, insert: "$1()\n  $0" }
+      - { label: var, detail: variable, insert: "$1 = $0" }
+
+  # ---------------------------------------------------------------- XSL / XSLT / XSL-FO
+  - id: xsl
+    extensions: [".xsl", ".xslt", ".fo"]
+    comment: { blockStart: "<!--", blockEnd: "-->" }
+    strings: ["\"", "'"]
+    keywords: [
+      xsl, fo, stylesheet, transform, template, value, of, for, each, apply, templates, call, if,
+      choose, when, otherwise, param, "with", variable, output, text, element, attribute, copy, number,
+      sort, key, import, include, comment, processing, instruction, namespace, "decimal-format", function
+    ]
+    types: [select, match, name, mode, test, href, version, encoding, indent, method, priority, "use", "as"]
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: stylesheet, detail: root, insert: "<xsl:stylesheet version=\"1.0\" xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">\n  $0\n</xsl:stylesheet>" }
+      - { label: template, detail: template, insert: "<xsl:template match=\"$1\">\n  $0\n</xsl:template>" }
+      - { label: valueof, detail: value-of, insert: "<xsl:value-of select=\"$1\"/>$0" }
+      - { label: foreach, detail: for-each, insert: "<xsl:for-each select=\"$1\">\n  $0\n</xsl:for-each>" }
+
+  # ---------------------------------------------------------------- DSSSL (Scheme-based)
+  - id: dsssl
+    extensions: [".dsl", ".dsssl"]
+    comment: { line: ";" }
+    strings: ["\""]
+    keywords: [
+      define, lambda, let, letrec, cond, if, else, case, when, unless, and, or, not, begin, set, quote,
+      make, element, root, mode, style, process, children, "node-list", literal, sequence, current,
+      node, declare, flow, object, class, initial, value, "with", "default", empty, sosofo, string
+    ]
+    types: []
+    formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+    completions:
+      - { label: define, detail: define, insert: "(define ($1)\n  $0)" }
+      - { label: element, detail: element rule, insert: "(element $1\n  $0)" }
