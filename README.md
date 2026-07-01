@@ -51,4 +51,4 @@ for the full authoring flow.
 
 ## License
 
-Apache-2.0. © 2026 blamspotdev (Janrick Samorin).
+MIT. © 2026 blamspotdev (Janrick Samorin).
