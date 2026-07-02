@@ -2,7 +2,7 @@
 schema: 1
 uniqueName: jcode.lang.stylesheet
 name: Style Sheet Language Pack
-version: 1.0.0
+version: 1.0.1
 type: language
 publisher: jcode
 shortDescription: Coloring, completions, snippets, and formatting for CSS, SCSS, SASS, LESS, Stylus, XSL, and DSSSL.
@@ -19,7 +19,7 @@ suggests:
   lsps: []
   extensions: []
 images:
-  icon: media/icon.png
+  icon: media/icon.pngmedia/icon.png
   samples: []
   walkthrough: []
 entry:

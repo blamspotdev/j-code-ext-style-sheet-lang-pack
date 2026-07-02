@@ -1,6 +1,6 @@
 id: jcode.lang.stylesheet
 name: Style Sheet Language Pack
-version: 1.0.0
+version: 1.0.1
 type: language
 
 # One extension, many style-sheet languages. Each entry is a self-contained
