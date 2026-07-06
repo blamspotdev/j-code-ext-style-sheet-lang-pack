@@ -141,3 +141,19 @@ languages:
     completions:
       - { label: define, detail: define, insert: "(define ($1)\n  $0)" }
       - { label: element, detail: element rule, insert: "(element $1\n  $0)" }
+
+# --- header fields merged from extension.jehm ---
+publisher: jcode
+shortDescription: Coloring, completions, snippets, and formatting for CSS, SCSS, SASS, LESS, Stylus, XSL, and DSSSL.
+minJCodeVersion: 1.0.0
+targetJCodeVersion: 1.0.0
+category: Languages
+subcategory: Style Sheets
+images:
+  icon: media/icon.png
+  samples: []
+  walkthrough: []
+entry:
+  manifest: extension.yaml
+  ui: null
+  libs: []
