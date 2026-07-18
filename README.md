@@ -21,7 +21,7 @@ Each language provides syntax **coloring** (properties, values/units, at-rules l
 `@mixin`/`@include`, an `<xsl:template>`), and the built-in **Format Document**.
 
 Plain HTML / XML / SVG / YAML / JSON / TOML / INI are handled by the companion
-[**Markup Language Pack**](https://github.com/blamspotdev/j-code-ext-markup-pack-1).
+[**Markup Dev Pack**](https://github.com/blamspotdev/j-code-ext-markup-pack-1).
 
 ## Manifest shape — one extension, many languages
 

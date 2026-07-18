@@ -1,6 +1,6 @@
 id: jcode.lang.stylesheet
-name: Style Sheet Language Pack
-version: 1.0.1
+name: Style Sheet Dev Pack
+version: 1.0.2
 type: language
 requires:
   lsps: [vscode-css-language-server]
