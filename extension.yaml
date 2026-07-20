@@ -1,9 +1,10 @@
 id: jcode.lang.stylesheet
 name: Style Sheet Dev Pack
-version: 1.0.2
+version: 1.0.3
 type: language
 requires:
   lsps: [vscode-css-language-server]
+suggests:
   sdks: [nodejs]
 
 # One extension, many style-sheet languages. Each entry is a self-contained
