@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------- SASS (indented)
+id: sass
+extensions: [".sass"]
+comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+strings: ["\"", "'"]
+keywords: [
+  color, background, "background-color", border, "border-radius", margin, padding, width, height,
+  display, position, top, right, bottom, left, overflow, font, "font-size", "font-weight",
+  "line-height", "text-align", flex, "justify-content", "align-items", gap, transition, transform,
+  opacity, cursor, from, to, through, in, if, else
+]
+types: *cssvalues
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: mixin, detail: "=mixin", insert: "=$1\n  $0" }
+  - { label: include, detail: "+include", insert: "+$1$0" }
+  - { label: var, detail: variable, insert: "$$1: $0" }

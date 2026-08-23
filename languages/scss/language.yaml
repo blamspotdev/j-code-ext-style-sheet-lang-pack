@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------- SCSS
+id: scss
+extensions: [".scss"]
+comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+strings: ["\"", "'"]
+keywords: [
+  color, background, "background-color", border, "border-radius", margin, padding, width, height,
+  "min-width", "max-width", display, position, top, right, bottom, left, overflow, "z-index", font,
+  "font-size", "font-family", "font-weight", "line-height", "text-align", flex, "flex-direction",
+  "justify-content", "align-items", gap, grid, transition, transform, opacity, "box-shadow", cursor,
+  "box-sizing", from, to, through, in, if, else
+]
+types: *cssvalues
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: mixin, detail: "@mixin", insert: "@mixin $1 {\n  $0\n}" }
+  - { label: include, detail: "@include", insert: "@include $1;$0" }
+  - { label: var, detail: variable, insert: "$$1: $0;" }
+  - { label: ifelse, detail: "@if/@else", insert: "@if $1 {\n  $2\n} @else {\n  $0\n}" }

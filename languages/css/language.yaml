@@ -1,0 +1,26 @@
+# ---------------------------------------------------------------- CSS
+id: css
+extensions: [".css", ".pcss", ".postcss"]
+comment: { blockStart: "/*", blockEnd: "*/" }
+strings: ["\"", "'"]
+keywords: [
+  color, background, "background-color", "background-image", "background-size", "background-position",
+  border, "border-radius", "border-color", "border-width", outline, margin, padding, width, height,
+  "min-width", "max-width", "min-height", "max-height", display, position, top, right, bottom, left,
+  float, clear, overflow, "z-index", font, "font-size", "font-family", "font-weight", "font-style",
+  "line-height", "letter-spacing", "text-align", "text-decoration", "text-transform", "white-space",
+  flex, "flex-direction", "flex-wrap", "justify-content", "align-items", "align-self", gap, grid,
+  "grid-template-columns", "grid-template-rows", "grid-gap", transition, transform, animation,
+  opacity, "box-shadow", "box-sizing", cursor, content, visibility, "pointer-events"
+]
+types: &cssvalues [
+  px, em, rem, vh, vw, vmin, vmax, fr, deg, none, auto, inherit, initial, unset, block, inline,
+  "inline-block", flex, grid, absolute, relative, fixed, sticky, static, center, left, right,
+  top, bottom, bold, italic, normal, solid, dashed, dotted, hidden, visible, pointer, transparent,
+  uppercase, lowercase, capitalize, wrap, nowrap, row, column, cover, contain
+]
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: rule, detail: selector block, insert: "$1 {\n  $0\n}" }
+  - { label: flexcenter, detail: flex center, insert: "display: flex;\n  align-items: center;\n  justify-content: center;$0" }
+  - { label: media, detail: media query, insert: "@media (max-width: $1px) {\n  $0\n}" }

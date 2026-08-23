@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------- XSL / XSLT / XSL-FO
+id: xsl
+extensions: [".xsl", ".xslt", ".fo"]
+comment: { blockStart: "<!--", blockEnd: "-->" }
+strings: ["\"", "'"]
+keywords: [
+  xsl, fo, stylesheet, transform, template, value, of, for, each, apply, templates, call, if,
+  choose, when, otherwise, param, "with", variable, output, text, element, attribute, copy, number,
+  sort, key, import, include, comment, processing, instruction, namespace, "decimal-format", function
+]
+types: [select, match, name, mode, test, href, version, encoding, indent, method, priority, "use", "as"]
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: stylesheet, detail: root, insert: "<xsl:stylesheet version=\"1.0\" xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\">\n  $0\n</xsl:stylesheet>" }
+  - { label: template, detail: template, insert: "<xsl:template match=\"$1\">\n  $0\n</xsl:template>" }
+  - { label: valueof, detail: value-of, insert: "<xsl:value-of select=\"$1\"/>$0" }
+  - { label: foreach, detail: for-each, insert: "<xsl:for-each select=\"$1\">\n  $0\n</xsl:for-each>" }
