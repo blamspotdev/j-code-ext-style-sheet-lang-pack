@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------- DSSSL (Scheme-based)
+id: dsssl
+extensions: [".dsl", ".dsssl"]
+comment: { line: ";" }
+strings: ["\""]
+keywords: [
+  define, lambda, let, letrec, cond, if, else, case, when, unless, and, or, not, begin, set, quote,
+  make, element, root, mode, style, process, children, "node-list", literal, sequence, current,
+  node, declare, flow, object, class, initial, value, "with", "default", empty, sosofo, string
+]
+types: []
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: define, detail: define, insert: "(define ($1)\n  $0)" }
+  - { label: element, detail: element rule, insert: "(element $1\n  $0)" }

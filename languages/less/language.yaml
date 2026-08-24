@@ -1,0 +1,18 @@
+# ---------------------------------------------------------------- LESS
+id: less
+extensions: [".less"]
+comment: { line: "//", blockStart: "/*", blockEnd: "*/" }
+strings: ["\"", "'"]
+keywords: [
+  color, background, "background-color", border, "border-radius", margin, padding, width, height,
+  "min-width", "max-width", display, position, top, right, bottom, left, overflow, "z-index", font,
+  "font-size", "font-family", "font-weight", "line-height", "text-align", flex, "flex-direction",
+  "justify-content", "align-items", gap, grid, transition, transform, opacity, "box-shadow", cursor,
+  "box-sizing", when, not, and, "true", "false"
+]
+types: *cssvalues
+formatter: { indent: 2, trimTrailingWhitespace: true, insertFinalNewline: true }
+completions:
+  - { label: mixin, detail: mixin, insert: ".$1() {\n  $0\n}" }
+  - { label: var, detail: variable, insert: "@$1: $0;" }
+  - { label: import, detail: "@import", insert: "@import \"$1\";$0" }
